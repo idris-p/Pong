@@ -3,23 +3,33 @@ using UnityEngine;
 public class BallMovement : MonoBehaviour
 {
     public float speed = 5f;
-    public float boundary = 10f;
-    float moveX = 1f;
-    float moveY = 1f;
+    float moveX;
+    float moveY;
 
+    void Start()
+    {
+        // Randomly choose the direction of the ball between 1 and -1
+        moveX = Random.Range(0, 2) == 0 ? 1f : -1f;
+        moveY = Random.Range(0, 2) == 0 ? 1f : -1f;
+    }
     void Update()
     {
         transform.Translate(Vector3.right * moveX * speed * Time.deltaTime);
         transform.Translate(Vector3.up * moveY * speed * Time.deltaTime);
+    }
 
-        if (transform.position.y > boundary || transform.position.y < -boundary)
-        {
-            moveY *= -1f;
-        }
-
-        if (transform.position.x > 11f || transform.position.x < -11f)
+    // Called when the ball partakes in a collision
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Paddle")
         {
             moveX *= -1f;
+            speed += 0.5f;
+        }
+
+        if (collision.gameObject.tag == "Wall")
+        {
+            moveY *= -1f;
         }
     }
 }
