@@ -1,13 +1,18 @@
+using System.Collections;
 using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
     public float speed = 5f;
+    public float respawn = 3f;
     float moveX;
     float moveY;
+    float initialSpeed;
 
     void Start()
     {
+        initialSpeed = speed;
+        
         // Randomly choose the direction of the ball between 1 and -1
         moveX = Random.Range(0, 2) == 0 ? 1f : -1f;
         moveY = Random.Range(0, 2) == 0 ? 1f : -1f;
@@ -31,5 +36,18 @@ public class BallMovement : MonoBehaviour
         {
             moveY *= -1f;
         }
+
+        if (collision.gameObject.tag == "Goal")
+        {
+            // Call coroutine to run simultaneously
+            StartCoroutine(Wait());
+        }
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(respawn); // Wait 5 seconds
+        speed = initialSpeed;
+        transform.position = Vector3.zero;
     }
 }
