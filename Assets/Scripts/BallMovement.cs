@@ -44,9 +44,9 @@ public class BallMovement : MonoBehaviour
         }
     }
 
-    private IEnumerator Wait()
+    private IEnumerator Wait() // Coroutine must return type IEnumerator
     {
-        yield return new WaitForSeconds(respawn); // Wait 5 seconds
+        yield return new WaitForSeconds(respawn); // Wait 'respawn' seconds
         speed = initialSpeed;
         transform.position = Vector3.zero;
     }

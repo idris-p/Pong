@@ -23,15 +23,15 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-        pauseMenuUI.SetActive(false);
+        pauseMenuUI.SetActive(false); // Hide the pauseMenuUI canvas
         Time.timeScale = 1f;
         isPaused = false;
     }
 
     public void PauseGame()
     {
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
+        pauseMenuUI.SetActive(true); // Show the pauseMenuUI canvas
+        Time.timeScale = 0f; // Freeze time
         isPaused = true;
     }
 }
