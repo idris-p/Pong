@@ -41,6 +41,16 @@ public class BallMovement : MonoBehaviour
         {
             // Call coroutine to run simultaneously
             StartCoroutine(Wait());
+
+            // Get the score manager to increment score 
+            if (collision.gameObject.name == "Goal2")
+            {
+                ScoreManager.instance.AddScore("Player 1");
+            }
+            else if (collision.gameObject.name == "Goal1")
+            {
+                ScoreManager.instance.AddScore("Player 2");
+            }
         }
     }
 
