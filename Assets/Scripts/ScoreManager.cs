@@ -12,11 +12,17 @@ public class ScoreManager : MonoBehaviour
     private int score1 = 0;
     private int score2 = 0;
 
-    void Awake() // Called when ??
+    void Awake() // Called before Start() even for disabled objects
     {
+        // Make sure only one game manager exists
         if (instance is null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 

@@ -3,6 +3,8 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI; // Allows pause menu to be accessed by script
+    public GameObject mainMenuUI;
+    public GameObject game;
     private bool isPaused;
 
     // Update is called once per frame
@@ -33,5 +35,12 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true); // Show the pauseMenuUI canvas
         Time.timeScale = 0f; // Freeze time
         isPaused = true;
+    }
+
+    public void QuitGame()
+    {
+        pauseMenuUI.SetActive(false);
+        game.SetActive(false);
+        mainMenuUI.SetActive(true);
     }
 }
