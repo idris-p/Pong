@@ -41,4 +41,12 @@ public class ScoreManager : MonoBehaviour
         scoreText1.text = score1.ToString();
         scoreText2.text = score2.ToString();
     }
+
+    public void ResetScore()
+    {
+        score1 = 0;
+        score2 = 0;
+        scoreText1.text = score1.ToString();
+        scoreText2.text = score2.ToString();
+    }
 }

@@ -4597,6 +4597,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuUI: {fileID: 1301809200}
   game: {fileID: 727532768}
+  ball: {fileID: 240762339}
+  score: {fileID: 2036782898}
+  player1: {fileID: 949587666}
+  player2: {fileID: 804072667}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

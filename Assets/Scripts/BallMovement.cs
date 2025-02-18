@@ -54,6 +54,14 @@ public class BallMovement : MonoBehaviour
         }
     }
 
+    public void ResetBall()
+    {
+        speed = initialSpeed;
+        transform.position = Vector3.zero;
+        moveX = Random.Range(0, 2) == 0 ? 1f : -1f;
+        moveY = Random.Range(0, 2) == 0 ? 1f : -1f;
+    }
+
     private IEnumerator Wait() // Coroutine must return type IEnumerator
     {
         yield return new WaitForSeconds(respawn); // Wait 'respawn' seconds
