@@ -20,13 +20,13 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(DelayedResetBall());
     }
 
-    void ResetPlayers()
+    public void ResetPlayers()
     {
         player1.position = new Vector3(player1.position.x, 0f, player1.position.z);
         player2.position = new Vector3(player2.position.x, 0f, player2.position.z);
     }
 
-    private IEnumerator DelayedResetBall()
+    public IEnumerator DelayedResetBall()
     {
         yield return null;
         ball.ResetBall();

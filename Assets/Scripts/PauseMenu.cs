@@ -4,6 +4,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI; // Allows pause menu to be accessed by script
     public GameObject mainMenuUI;
+    public GameObject winScreen;
     public GameObject game;
     private bool isPaused;
 
@@ -40,6 +41,7 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         pauseMenuUI.SetActive(false);
+        winScreen.SetActive(false);
         game.SetActive(false);
         mainMenuUI.SetActive(true);
     }

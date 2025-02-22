@@ -3,11 +3,16 @@ using TMPro; // Required for modifying text
 
 public class ScoreManager : MonoBehaviour
 {
+    public MainMenu mainMenu;
     public static ScoreManager instance; // Singleton??
 
     // Give script access to each piece of text
     public TextMeshProUGUI scoreText1;
     public TextMeshProUGUI scoreText2;
+
+    public GameObject winScreen;
+    public TextMeshProUGUI winnerText;
+    public int winningScore = 11;
     
     private int score1 = 0;
     private int score2 = 0;
@@ -40,6 +45,27 @@ public class ScoreManager : MonoBehaviour
         // Update the text
         scoreText1.text = score1.ToString();
         scoreText2.text = score2.ToString();
+
+        CheckWin();
+    }
+
+    void CheckWin()
+    {
+        if (score1 >= winningScore)
+        {
+            EndGame("Player 1 Wins!");
+        }
+        else if  (score2 >= winningScore)
+        {
+            EndGame("Player 2 Wins!");
+        }
+    }
+
+    void EndGame(string winner)
+    {
+        Time.timeScale = 0f;
+        winScreen.SetActive(true);
+        winnerText.text = winner;
     }
 
     public void ResetScore()
@@ -48,5 +74,10 @@ public class ScoreManager : MonoBehaviour
         score2 = 0;
         scoreText1.text = score1.ToString();
         scoreText2.text = score2.ToString();
+
+        mainMenu.ResetPlayers();
+        mainMenu.DelayedResetBall();
+        winScreen.SetActive(false);
+        Time.timeScale = 1f;
     }
 }
