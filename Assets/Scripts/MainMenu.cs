@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject mainMenuUI;
     public GameObject game;
-    public BallMovement ball;
+    public BallMovement ball; // Gives script access to the ball GameObject but only the public variables/methods in BallMovement
     public ScoreManager score;
     public Transform player1;
     public Transform player2;
@@ -28,7 +28,7 @@ public class MainMenu : MonoBehaviour
 
     public IEnumerator DelayedResetBall()
     {
-        yield return null;
+        yield return null; // Wait 0 seconds
         ball.ResetBall();
     }
 

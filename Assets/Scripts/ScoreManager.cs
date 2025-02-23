@@ -4,7 +4,7 @@ using TMPro; // Required for modifying text
 public class ScoreManager : MonoBehaviour
 {
     public MainMenu mainMenu;
-    public static ScoreManager instance; // Singleton??
+    public static ScoreManager instance; // Define what will be the one and only ScoreManager
 
     // Give script access to each piece of text
     public TextMeshProUGUI scoreText1;
@@ -49,7 +49,7 @@ public class ScoreManager : MonoBehaviour
         CheckWin();
     }
 
-    void CheckWin()
+    private void CheckWin()
     {
         if (score1 >= winningScore)
         {
@@ -61,7 +61,7 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    void EndGame(string winner)
+    private void EndGame(string winner)
     {
         Time.timeScale = 0f;
         winScreen.SetActive(true);

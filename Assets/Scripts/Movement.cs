@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour // Standard boilerplate
     void Update()
     {
         // GetAxis returns value in [-1, 1] depending on if player presses up or down arrow keys
+        // Used GetKey for binary inputs and movement
         float move = 0f;
         if (Input.GetKey(upKey))
         {
