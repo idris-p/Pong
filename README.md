@@ -9,3 +9,20 @@ This is a classic Pong game built using Unity, marking my first project with the
 - **Responsive controls**: Players can move their paddles up and down to intercept the ball.
 - **Game Reset**: The game resets when a player reaches 11 points, showing a UI menu.
 - **Pause functionality**: The game can be paused and resumed during play.
+
+## Setup
+
+1. **Clone the repository**:
+
+```bash
+git clone https://github.com/idris-p/Pong.git
+```
+
+2. **Open the project in Unity:**
+
+- Launch Unity Hub and select "Add" to add the project folder.
+- Open the project from Unity Hub.
+
+3. **Play the game:**
+
+- Press the "Play" button to begin.
