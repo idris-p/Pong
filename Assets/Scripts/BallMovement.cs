@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BallMovement : MonoBehaviour
@@ -28,7 +29,18 @@ public class BallMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Paddle")
         {
+            Vector3 ballPosition = transform.position;
+            Vector3 paddlePosition = collision.transform.position;
+            float paddleHeight = collision.collider.bounds.size.y;
+
+            float hitFactor = (ballPosition.y - paddlePosition.y) / (paddleHeight / 2);
+
             moveX *= -1f;
+            moveY = hitFactor;
+            Vector3 direction = new Vector3(moveX, moveY, 0).normalized;
+            moveX = direction.x;
+            moveY = direction.y;
+            
             speed += 0.5f;
         }
 

@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Paddle
   - Wall
   - Goal
+  - Paddle
   layers:
   - Default
   - TransparentFX
